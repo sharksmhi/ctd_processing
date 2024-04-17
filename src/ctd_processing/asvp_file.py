@@ -1,7 +1,7 @@
 import file_explorer
 import datetime
 import pathlib
-from sharkpylib import geography
+from ctd_processing import utils
 
 
 class ASVPfile:
@@ -50,7 +50,7 @@ class ASVPfile:
 
     @staticmethod
     def format_pos(pos):
-        return str(round(geography.decmin_to_decdeg(pos), 6))
+        return str(round(utils.decmin_to_decdeg(pos), 6))
 
     @property
     def version(self):

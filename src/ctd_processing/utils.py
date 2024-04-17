@@ -73,3 +73,32 @@ def get_metadata_string_from_event_ids(event_ids):
 
 def get_metadata_event_ids_from_string(string):
     return metadata_string_to_dict(string.split(':', 1)[-1].strip())
+
+
+def decmin_to_decdeg(pos, return_string=False):
+    #    print type(pos),pos
+    try:
+        if type(pos) in [set, list, tuple]:
+            output = []
+            for p in pos:
+                p = float(p)
+                if p >= 0:
+                    output.append(np.floor(p / 100.) + (p % 100) / 60.)
+                else:
+                    output.append(np.ceil(p / 100.) - (-p % 100) / 60.)
+        else:
+            pos = float(pos)
+            if pos >= 0:
+                output = np.floor(pos / 100.) + (pos % 100) / 60.
+            else:
+                output = np.ceil(pos / 100.) - (-pos % 100) / 60.
+
+        if return_string:
+            if type(output) is list:
+                return map(str, output)
+            else:
+                return str(output)
+        else:
+            return output
+    except:
+        return pos

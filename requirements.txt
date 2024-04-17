@@ -1,8 +1,0 @@
-xlrd==2.0.1
-openpyxl==3.0.9
-psutil
-git+https://github.com/sharksmhi/sharkpylib.git@v0.1.1
-git+https://github.com/sharksmhi/ctdpy.git@v0.1.0
-git+https://github.com/sharksmhi/ctdvis.git@v0.2.0
-git+https://github.com/sharksmhi/file_explorer.git@v0.2.0
-git+https://github.com/sharksmhi/svepa.git@v0.2.0
