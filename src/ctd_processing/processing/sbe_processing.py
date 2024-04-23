@@ -274,14 +274,14 @@ class SBEPostProcessing:
     #     self._file_handler.set_root_dir('config', config_root_directory)
 
     def create_all_files(self):
-        self.create_sensorinfo_files()
+        self.create_sensorinfo_file()
         self.create_metadata_file()
         self.create_deliverynote_file()
         self.update_package()
         self.create_standard_format_file()
         return self._pack
 
-    def create_sensorinfo_files(self):
+    def create_sensorinfo_file(self):
         sensor_info.create_sensor_info_files_from_package(self._pack,
                                                           self._file_handler.instrument_file_path,
                                                           **self._kwargs)
@@ -302,7 +302,7 @@ class SBEPostProcessing:
         obj.create_from_package(self._pack)
         file_explorer.update_package_with_files_in_directory(self._pack, self._file_handler('local', 'data'),
                                                              **self._kwargs)
-        self._add_svepa_info()
+        #self._add_svepa_info()
         file_explorer.update_package_with_files_in_directory(self._pack, self._file_handler('local', 'data'),
                                                              replace=True, **self._kwargs)
 

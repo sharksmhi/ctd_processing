@@ -103,7 +103,7 @@ def reprocess_sbe_file(path,
     cont.process_file()
 
 
-def create_standard_format_for_packages(packs,
+def create_standard_format_for_packages(packs: list[file_explorer.package.Package],
                                         file_handler=None,
                                         # config_root_directory=None,
                                         overwrite=False,
