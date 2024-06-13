@@ -6,10 +6,10 @@ authors = [
     {name = "Magnus Wenzer", email = "nodc@smhi.se"},
 ]
 dependencies = [
-    "file-explorer @ git+https://github.com/sharksmhi/file_explorer.git",
+    "file-explorer @ git+https://github.com/sharksmhi/file_explorer.git@v1.0.0",
     "psutil>=5.9.8",
-    "ctdpy @ git+https://github.com/sharksmhi/ctdpy.git@27-refactor",
-    "ctdvis @ git+https://github.com/sharksmhi/ctdvis.git@35-refactor",
+    "ctdpy @ git+https://github.com/sharksmhi/ctdpy.git@v1.0.0",
+    "ctdvis @ git+https://github.com/sharksmhi/ctdvis.git@v1.0.0",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
