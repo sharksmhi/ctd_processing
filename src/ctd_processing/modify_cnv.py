@@ -370,8 +370,9 @@ class ModifyCnv(CnvFile):
         index = {}
         sensor_list = []
         for i, sensor in enumerate(self._xml_tree.findall('sensor')):
-            child_list = sensor.getchildren()
-            if not child_list:
+            # child_list = sensor.getchildren()
+            child_list = list(sensor)
+            if not sensor or not child_list:
                 continue
             child = child_list[0]
             par = child.tag
