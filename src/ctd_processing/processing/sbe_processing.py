@@ -62,15 +62,14 @@ class SBEProcessing:
     def get_surfacesoak_options(self):
         options = {}
         for path in self._processing_paths.loopedit_paths:
-            name = path.name.lower()
+            name = path.stem.lower()
             obj = psa.LoopeditPSAfile(path)
             depth_str = str(int(float(obj.depth)))
-            if 'deep' in name:
-                options[f'Deep {depth_str} m'] = path
-            elif 'shallow' in name:
-                options[f'Shallow {depth_str} m'] = path
+            parts = name.split('_')
+            if len(parts) == 1:
+                options[f'Normal: {depth_str} m'] = path
             else:
-                options[f'Normal {depth_str} m'] = path
+                options[f'{parts[1].capitalize()}: {depth_str} m'] = path
         return options
 
     def set_platform(self, platform):
