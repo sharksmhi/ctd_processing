@@ -54,7 +54,7 @@ def process_sbe_file(path,
                      platform: str = 'sbe09',
                      surfacesoak: str = 'normal',
                      tau=False,
-                     overwrite=False,
+                     overwrite: bool = False,
                      psa_paths=None,
                      **kwargs):
     """
