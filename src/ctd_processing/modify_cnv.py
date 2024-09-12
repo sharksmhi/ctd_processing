@@ -288,7 +288,6 @@ class ModifyCnv(CnvFile):
         self._header_cruise_info = {}
 
         self.xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>\n']
-        print('print(len(self.xml_lines))', len(self.xml_lines))
         is_xml = False
 
         header = True
@@ -301,10 +300,11 @@ class ModifyCnv(CnvFile):
                 if line.startswith('* System UTC'):
                     self._header_datetime = datetime.datetime.strptime(line.split('=')[1].strip(), self.header_date_format)
                 elif line.startswith('* NMEA Latitude'):
-                    print(self.path)
                     self._header_lat = line.split('=')[1].strip()[:-1].replace(' ', '')
                 elif line.startswith('* NMEA Longitude'):
                     self._header_lon = line.split('=')[1].strip()[:-1].replace(' ', '')
+                    if line.strip()[-1].upper() == 'W':
+                        self._header_lat *= -1
                 elif line.startswith('** Station'):
                     self._header_station = line.split(':')[-1].strip()
                 elif line.startswith('** Cruise'):
