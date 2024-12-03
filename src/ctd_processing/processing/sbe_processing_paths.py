@@ -61,6 +61,12 @@ class SBEProcessingPaths:
                 continue
             self._platform_paths[path.name.lower()] = path
 
+    @property
+    def svea_seasave_psa_path(self):
+        path = pathlib.Path(self._file_handler('config', 'root'), 'SBE', 'seasave_psa', 'svea', 'Seasave.psa')
+        return path
+
+
     def update_paths(self):
         if self._file_handler.root_dir_is_set('local') and self._file_handler('local', 'temp'):
             # print("= self._file_handler('local', 'temp')", self._file_handler('local', 'temp'))
