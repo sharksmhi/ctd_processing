@@ -238,15 +238,15 @@ class CreateStandardFormat:
         self._set_temp_dir()
         self._copy_files_to_temp_dir()
         self._create_standard_format()
-        self._add_svepa_info(pack)
+        # self._add_svepa_info(pack)
 
     def _add_svepa_info(self, pack):
         try:
-            import svepa
+            import svepa_event
         except:
-            logger.warning(f'Could not import module svepa to add svepa information')
+            logger.warning(f'Could not import module svepa_event to add svepa information')
             return
-        info = svepa.get_svepa_info(platform=pack.platform, time=pack.datetime)
+        info = svepa_event.get_svepa_info(platform=pack.platform, time=pack.datetime)
         # if not info:
         #     logger.info(f'No svepa information for file: {pack.key}')
         #     return
