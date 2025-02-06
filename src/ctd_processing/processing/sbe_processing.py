@@ -240,6 +240,10 @@ class SBEProcessing:
         with ZipFile(path, 'w') as zip_obj:
             for psa_path in self._processing_paths.get_psa_paths():
                 zip_obj.write(str(psa_path), psa_path.name)
+            seasave_psa_path = self._processing_paths.svea_seasave_psa_path
+            if seasave_psa_path.exists():
+                zip_obj.write(str(seasave_psa_path), seasave_psa_path.name)
+
 
 
 class SBEPostProcessing:
