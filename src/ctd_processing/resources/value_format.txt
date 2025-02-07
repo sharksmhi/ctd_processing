@@ -1,8 +1,10 @@
 active	format	parameter
 1	11d	scan: Scan Count
 1	11.3f	prDM: Pressure, Digiquartz [db]
+1	11.3f	prdM: Pressure, Strain Gauge [db]
 1	11.4f	t090C: Temperature [ITS-90, deg C]
 1	11.4f	t190C: Temperature, 2 [ITS-90, deg C]
+1	11.4f	tv290C: Temperature [ITS-90, deg C]
 1	11.5f	c0S/m: Conductivity [S/m]
 1	11.5f	c1S/m: Conductivity, 2 [S/m]
 1	11d	pumps: Pump Status
