@@ -428,7 +428,7 @@ class ModifyCnv(CnvFile):
         self.col_sv = None
 
         for par in self._parameters.values():
-            if 'Pressure, Digiquartz [db]' in par.name:
+            if 'Pressure, Digiquartz [db]' in par.name or 'Pressure, Strain Gauge [db]' in par.name:
                 self.col_pres = par.index
             elif 'Density [sigma-t' in par.name:
                 self.col_dens = par.index
