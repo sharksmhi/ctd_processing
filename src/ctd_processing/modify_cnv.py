@@ -545,7 +545,7 @@ class ModifyCnv(CnvFile):
             after_str = row
 
     def _modify_irradiance(self):
-        Header.append_to_row(self._header_lines, 'par: PAR/Irradiance', ' [µE/(cm^2*s)]')
+        Header.append_to_row(self._header_lines, 'par: PAR/Irradiance', ' [µE/(m^2*s)]')
 
     def _modify_fluorescence(self):
         # Lägger till Chl-a på de fluorometrar som har beteckning som börjar på FLNTURT
