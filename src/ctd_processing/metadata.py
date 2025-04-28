@@ -85,8 +85,8 @@ class CreateMetadataSummaryFile:
         self._metadata = []
 
     def create_from_packages(self, packs, output_dir, **kwargs):
-        self._paths = self._get_paths_from_packages(packs)
-        self._save_info()
+        # self._paths = self._get_paths_from_packages(packs)
+        self._save_info(packs)
         self.write_summary_to_file(output_dir, **kwargs)
 
     @staticmethod
@@ -99,8 +99,11 @@ class CreateMetadataSummaryFile:
             paths.append(path)
         return sorted(paths)
 
-    def _save_info(self):
-        for path in self._paths:
+    def _save_info(self, packs):
+        for pack in packs:
+            path = pack.get_file_path(suffix='.metadata')
+            if not path:
+                raise FileNotFoundError(f'No .metadata file for package {pack.key}')
             header = None
             with open(path) as fid:
                 for line in fid:
@@ -111,6 +114,10 @@ class CreateMetadataSummaryFile:
                         header = split_line
                         continue
                     meta = dict(zip(header, split_line))
+                    rev_date = pack('rev_date')
+                    if rev_date:
+                        meta['REV_DATE'] = str(rev_date.date())
+                    meta["FILE_NAME_DATABASE"] = path.with_suffix('.txt').name
                     self._metadata.append(meta)
 
     def write_summary_to_file(self, directory, **kwargs):
