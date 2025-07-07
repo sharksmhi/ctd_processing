@@ -38,11 +38,17 @@ class ASVPfile:
 
     @property
     def z_data(self):
-        return self.file.get_data(mapped=True)['PRES_CTD']
+        try:
+            return self.file.get_data(mapped=True)['PRES_CTD']
+        except:
+            return self.file.data['Pressure, Strain Gauge [db]']
 
     @property
     def vel_data(self):
-        return self.file.get_data(mapped=True)['SVEL_CTD']
+        try:
+            return self.file.get_data(mapped=True)['SVEL_CTD']
+        except:
+            return self.file.data['Sound Velocity [Chen-Millero, m/s]']
 
     @staticmethod
     def format_time(dtime):
